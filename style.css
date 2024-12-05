@@ -1,0 +1,203 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #87CEEB;
+    font-family: Arial, sans-serif;
+}
+
+.game-container {
+    position: relative;
+    width: 800px;
+    height: 700px;
+    margin: 0 auto;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-bar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.score-box, .level-box, .lives-box {
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+}
+
+.heart {
+    font-size: 30px;
+    margin: 0 5px;
+}
+
+.heart.empty {
+    opacity: 0.3;
+}
+
+#game-area {
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+    border: 3px solid #333;
+    border-radius: 10px;
+}
+
+#basket {
+    width: 100px;
+    height: 60px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60"><path d="M0,0 C0,0 45,10 100,0 L90,60 L10,60 L0,0" fill="brown"/></svg>');
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+
+.fruit {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    user-select: none;
+}
+
+.bomb {
+    font-size: 30px !important;
+    width: 40px !important;
+    height: 40px !important;
+    filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
+}
+
+.special-item {
+    font-size: 30px !important;
+    width: 40px !important;
+    height: 40px !important;
+    color: #1E90FF;
+    filter: drop-shadow(0 0 10px #1E90FF);
+    animation: shine 1s infinite;
+}
+
+#game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+#game-over.hidden {
+    display: none;
+}
+
+#restart-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#restart-button:hover {
+    background: #45a049;
+}
+
+#info-bar {
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 18px;
+}
+
+#bottom-space {
+    height: 100px;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    text-align: center;
+}
+
+@keyframes shine {
+    0% { transform: scale(1) rotate(0deg); filter: drop-shadow(0 0 10px #1E90FF); }
+    50% { transform: scale(1.1) rotate(180deg); filter: drop-shadow(0 0 20px #1E90FF); }
+    100% { transform: scale(1) rotate(360deg); filter: drop-shadow(0 0 10px #1E90FF); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes pulse-heart {
+    0% { transform: scale(1); filter: drop-shadow(0 0 10px #ff3366); }
+    50% { transform: scale(1.2); filter: drop-shadow(0 0 20px #ff3366); }
+    100% { transform: scale(1); filter: drop-shadow(0 0 10px #ff3366); }
+}
+
+@keyframes ice-shine {
+    0% { transform: scale(1); filter: drop-shadow(0 0 10px #00ffff); }
+    50% { transform: scale(1.1); filter: drop-shadow(0 0 20px #00ffff); }
+    100% { transform: scale(1); filter: drop-shadow(0 0 10px #00ffff); }
+}
+
+@keyframes freeze-pulse {
+    0% { opacity: 0.8; }
+    50% { opacity: 0.6; }
+    100% { opacity: 0.8; }
+}
+
+@keyframes donut-shine {
+    0% { transform: scale(1) rotate(0deg); filter: drop-shadow(0 0 10px #32CD32); }
+    50% { transform: scale(1.2) rotate(180deg); filter: drop-shadow(0 0 20px #32CD32); }
+    100% { transform: scale(1) rotate(360deg); filter: drop-shadow(0 0 10px #32CD32); }
+}
+
+@keyframes immune-pulse {
+    0% { opacity: 0.8; filter: drop-shadow(0 0 15px #32CD32); }
+    50% { opacity: 0.6; filter: drop-shadow(0 0 25px #32CD32); }
+    100% { opacity: 0.8; filter: drop-shadow(0 0 15px #32CD32); }
+}

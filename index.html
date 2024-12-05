@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coletor de Frutas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="info-bar">
+            <div class="score-box">Pontuação: <span id="score">0</span></div>
+            <div class="level-box">Nível: <span id="level">1</span></div>
+            <div class="lives-box">
+                <span class="heart">❤️</span>
+                <span class="heart">❤️</span>
+                <span class="heart">❤️</span>
+            </div>
+        </div>
+        <div id="game-area">
+            <div id="basket"></div>
+        </div>
+        <div id="bottom-space">
+            Move o mouse aqui para não travar!
+        </div>
+        <div id="game-over" class="hidden">
+            <h2>Fim de Jogo!</h2>
+            <p>Pontuação Final: <span id="final-score">0</span></p>
+            <button id="restart-button">Jogar Novamente</button>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
